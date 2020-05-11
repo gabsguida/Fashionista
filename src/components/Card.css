@@ -1,0 +1,29 @@
+.cards{
+    padding: 15px 15px;
+}
+
+.cards__section-title{
+    margin: 0;
+}
+
+.card__container{
+    display: flex;
+    margin-top: 15px;
+    background-color: red;
+}
+
+.card__thumb{
+    width: 50%;
+    background-color: cadetblue;
+}
+
+.card__thumb-img{
+    width: 100%;
+}
+
+.card__info{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    background-color: blueviolet;
+}

@@ -1,0 +1,31 @@
+.header{
+    width: 100%;
+    position: fixed;
+    top: 0;
+    background-color: #fff;
+}
+
+.header__container{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    height: 60px;
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.2);
+}
+
+.header__icon{
+    font-size: 2em;
+    padding: 10px;
+}
+
+.header__actions-list{
+    display: flex;
+    justify-content: space-between;
+}
+
+.header__logo-img{
+    display: block;
+    min-width: 160px;
+    width: 80%;
+}

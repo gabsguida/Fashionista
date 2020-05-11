@@ -1,0 +1,25 @@
+.menu__container{
+    background-color: #212121;
+    color: #fff;
+}
+
+.menu__container .menu__nav ul li a{
+    display: block;
+    padding: 15px;
+    border-bottom: 1px solid #555;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: bold;
+    color: #fff;
+    transition: all 0.2s ease-in-out;
+}
+
+.menu__container .menu__nav ul li:first-child a{
+    border-top: 1px solid #555;
+}
+
+.menu__container .menu__nav ul li a:hover{
+    color: #b99646;
+    transition: all 0.2s ease-in-out;
+    padding-left: 25px;
+}
