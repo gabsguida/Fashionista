@@ -24,7 +24,7 @@ class App extends React.Component {
             products: result,
             productsFull: result
           });
-          console.log(this.state.products)},
+        },
 				(error) => {
 					this.setState({
 						isLoaded: false,
@@ -35,14 +35,12 @@ class App extends React.Component {
   }
 
   render() {
-  
-
     return (
       <React.Fragment>
         <Header />
         <main>
           <Hero />
-          <Cards products={this.state.products}/>          
+          <Cards products={this.state.products}/>         
         </main>
       </React.Fragment>
     )

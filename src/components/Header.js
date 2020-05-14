@@ -66,7 +66,7 @@ class Header extends React.Component {
                 <Sidebar className="search__container" isRight={true} title="Busca">
                     search box
                     <form>
-                        <input type="text" placeholder="O que você procura?" className="header__search-field " autocomplete="off" />
+                        <input type="text" placeholder="O que você procura?" className="header__search-field" />
                     </form>
                 </Sidebar>
                 <Sidebar className="cart__container" isRight={true} title="Carrinho de compras">

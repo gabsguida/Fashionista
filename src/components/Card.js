@@ -1,38 +1,33 @@
 import React from 'react';
+import CardSummary from './CardSummary';
+import Button from './Button';
+import ProductDetails from './ProductDetails';
 import './Card.css';
 
-const ButtonDetails = (props) => {
-    return (
-        <button className="card__product-detail-btn" onClick={props.HandleClick}>
-            Detalhes
-        </button>
-    )
-}
 
 class Card extends React.Component {
-    cardDetailClick() {
-        
+    constructor(props) {
+        super(props);
+        this.state = {seen: false}
+    }
+
+    triggerButton() {
+        this.setState({
+            seen: !this.state.seen
+        });
     }
 
     render() {
         return (
             <div className="card__container">
-            <div className="card__thumb">
-                <span className="card__thumb-promotion">{this.props.data.discount_percentage}</span>
-                <img className="card__thumb-img" 
-                    src={this.props.data.image} 
-                    alt={this.props.data.name}
-                    width='100'
-                />
+                <CardSummary data={this.props.data}>
+                    <Button text="Detalhes" onClick={this.triggerButton.bind(this)} />
+                </CardSummary>
+                <div>
+                    {this.state.seen ? <ProductDetails toggle={this.triggerButton.bind(this)} data={this.props.data} /> : null}
+                </div>     
             </div>
-            <div className="card__info">
-                <span className="card__product-name">{this.props.data.name}</span>
-                <span className="card__product-original-price">{this.props.data.regular_price}</span>
-                <span className="card__product-current-price">{this.props.data.actual_price}</span>
-                <ButtonDetails HandleClick={this.cardDetailClick}/>
-            </div>
-            </div>
-        )
+        );
     }
 }
 

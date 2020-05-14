@@ -1,0 +1,55 @@
+.productDetail__overlay{
+    background-color: #ffffff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    width: 100%;
+    height: 100vh;
+    padding: 20px;
+}
+
+input[type=radio] {
+	display: none;
+}
+ 
+label {
+    border: 2px  solid #212121;
+    font-weight: bold;
+    padding: 10px;
+    margin-right: 10px;
+    background-color: #ffffff;
+    width: 44px;
+    text-align: center;
+    display: inline-block;
+    border-radius: 7px;
+    cursor: pointer;
+    user-select: none;
+
+}
+ 
+input[type=radio]:checked + label {
+    background-color: #b99646;
+    color: #212121;
+    border-color: #212121;
+}
+
+.productDetail__overlay .card__thumb{
+    width: 80%;
+}
+
+.productDetail__overlay .card__info{
+    width: 100%;
+}
+
+.productDetail__overlay .card__info .card__product-name{
+    font-size: 1.2em;
+}
+
+.productDetail__text{
+    font-weight: bold;
+}
+
+.productDetail__close-btn{
+    font-size: 1.8em;
+}

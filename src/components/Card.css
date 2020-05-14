@@ -9,21 +9,66 @@
 .card__container{
     display: flex;
     margin-top: 15px;
-    background-color: red;
+    border: 1px  solid rgba(0,0,0,0.1);
+
 }
 
 .card__thumb{
-    width: 50%;
-    background-color: cadetblue;
+    width: 35%;
+    position: relative;
+}
+
+.card__thumb-promotion{
+    background: #484848;
+    color: #fff;
+    font-weight: bold;
+    font-size: 0.9rem;
+    position: absolute;
+    top: 10px;
+    left: -8px;
+    padding: 3px 3px 5px 10px;
+    
+}
+
+.card__thumb-promotion::before{
+    content: "";
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    background-color: #212121;
+    display: block;
+    width: 7px;
+    height: 10px;
+    transform: skewY(45deg);
+    z-index: -10;
+    
 }
 
 .card__thumb-img{
     width: 100%;
+    display: block;
 }
 
 .card__info{
-    width: 50%;
+    width: 65%;
+    padding: 10px;
     display: flex;
     flex-direction: column;
-    background-color: blueviolet;
+    align-items: flex-end;
+    text-align: right;
 }
+
+.card__info--promotion .card__info-field--regular-price{
+    text-decoration: line-through;
+}
+
+.card__info-field{
+    padding-bottom: 14px;
+}
+
+.card__info-field--name{
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+

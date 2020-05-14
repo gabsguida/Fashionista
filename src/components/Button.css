@@ -1,0 +1,17 @@
+.btn-cta{
+    border-radius: 15px;
+    cursor: pointer;
+    height: 30px;
+    padding: 0 20px;
+    background-color: #ffffff;
+    border: 1px solid #b99646;
+    color: #212121;
+}
+
+.btn-cta--primary{
+    background-color: #212121;
+    border: 1px solid #212121;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
