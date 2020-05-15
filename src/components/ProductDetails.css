@@ -1,55 +1,104 @@
-.productDetail__overlay{
-    background-color: #ffffff;
+.productDetail__overlay-bg{
+    background-color: #212121;
     position: fixed;
     top: 0;
     left: 0;
     z-index: 100;
     width: 100%;
     height: 100vh;
-    padding: 20px;
+    opacity: 0.5;
 }
 
-input[type=radio] {
-	display: none;
-}
- 
-label {
-    border: 2px  solid #212121;
-    font-weight: bold;
-    padding: 10px;
-    margin-right: 10px;
+.productDetail__overlay{
     background-color: #ffffff;
-    width: 44px;
-    text-align: center;
-    display: inline-block;
-    border-radius: 7px;
-    cursor: pointer;
-    user-select: none;
-
+    position: fixed;
+    top: 5vh;
+    left: 5%;
+    z-index: 110;
+    width: 90%;
+    height: 90vh;
+    padding: 40px 15px 15px;
+    border-radius: 10px;
 }
- 
-input[type=radio]:checked + label {
-    background-color: #b99646;
-    color: #212121;
-    border-color: #212121;
+
+.productDetail__close-container{
+    position: absolute;
+    top: 5px;
+    left: 5px; 
+}
+
+.productDetail__overlay-content{
+    overflow-y: scroll;
+    height: 100%;
 }
 
 .productDetail__overlay .card__thumb{
-    width: 80%;
+    width: 100%;
+    margin: 0 auto;
 }
 
 .productDetail__overlay .card__info{
     width: 100%;
+    align-items: flex-start;
+    text-align: left;
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 0;
 }
 
-.productDetail__overlay .card__info .card__product-name{
-    font-size: 1.2em;
+.productDetail__overlay .card__info-field{
+    padding-bottom: 8px;
+}
+
+.productDetail__overlay .card__info-field--prices{
+    flex-direction: row;
+}
+
+.productDetail__overlay .card__info-field--installments{
+    font-size: 1.0rem;
+    padding-left: 10px;
 }
 
 .productDetail__text{
     font-weight: bold;
 }
 
+.productDetail__sizes{
+    padding: 10px 0;
+}
+
+.productDetail__sizes input[type=radio] {
+	display: none;
+}
+ 
+.productDetail__sizes label {
+    border: 2px solid #212121;
+    font-weight: bold;
+    padding: 5px;
+    margin-right: 10px;
+    background-color: #ffffff;
+    width: 30px;
+    text-align: center;
+    display: inline-block;
+    border-radius: 9px;
+    cursor: pointer;
+    user-select: none;
+    font-size: 0.9em;
+
+}
+ 
+.productDetail__sizes input[type=radio]:checked + label {
+    background-color: #b99646;
+    color: #212121;
+    border-color: #212121;
+}
+
+.productDetail__sizes input[type=radio]:disabled + label{
+    opacity: 0.3;
+    cursor: default;
+}
+
 .productDetail__close-btn{
     font-size: 1.8em;
 }
+

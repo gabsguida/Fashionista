@@ -69,16 +69,11 @@ class Header extends React.Component {
                         <input type="text" placeholder="O que você procura?" className="header__search-field" />
                     </form>
                 </Sidebar>
-                <Sidebar className="cart__container" isRight={true} title="Carrinho de compras">
+                <Sidebar className="cart__container" isRight={true} title="Carrinho de compras" >
                     cart box
                     <div className="cart__product-card">
-                        <div className="cart__product-image">
-                            <img src="/" alt=""/>
-                        </div>
-                        <div className="cart__product-info">
-                            <span className="cart__product-name"></span>
-                            <span className="cart__product-price"></span>
-                        </div>
+                        <span className="iconify" data-icon="ei:trash" data-inline="false"></span>
+                        {/* chamar o state, como props, pra adicionar os items no carrinho */}
                     </div>
                 </Sidebar>
                 <Sidebar className="account__container" isRight={true} title="Login">

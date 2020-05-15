@@ -11,6 +11,7 @@ class App extends React.Component {
       error: null,
       isLoaded: false,
       products: [],
+      cart: []
     }
   }
 
@@ -32,6 +33,14 @@ class App extends React.Component {
 					});
 				}
       )
+  }
+
+  addToCart() {
+    
+    // ver sobre redux pra usar o state apenas no app
+    this.setState({
+      cart:[]
+    })
   }
 
   render() {

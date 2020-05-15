@@ -11,7 +11,12 @@ class Card extends React.Component {
         this.state = {seen: false}
     }
 
-    triggerButton() {
+    addToCart(sku) {
+        console.log(sku);
+        this.toggleProductDetails();
+    }
+
+    toggleProductDetails() {
         this.setState({
             seen: !this.state.seen
         });
@@ -21,10 +26,10 @@ class Card extends React.Component {
         return (
             <div className="card__container">
                 <CardSummary data={this.props.data}>
-                    <Button text="Detalhes" onClick={this.triggerButton.bind(this)} />
+                    <Button text="Detalhes" onClick={this.toggleProductDetails.bind(this)} />
                 </CardSummary>
                 <div>
-                    {this.state.seen ? <ProductDetails toggle={this.triggerButton.bind(this)} data={this.props.data} /> : null}
+                    {this.state.seen ? <ProductDetails addToCart={this.addToCart.bind(this)} toggle={this.toggleProductDetails.bind(this)} data={this.props.data} /> : null}
                 </div>     
             </div>
         );

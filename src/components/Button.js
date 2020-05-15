@@ -6,7 +6,8 @@ class Button extends Component {
         return(
         <button 
             className={"btn-cta" + (this.props.isPrimary ? " btn-cta--primary" : "")} 
-            onClick={this.props.onClick}>
+            onClick={this.props.onClick}
+            disabled={this.props.disabled}>
             {this.props.text}
         </button>
         )

@@ -15,3 +15,8 @@
     font-weight: bold;
     font-size: 1.2rem;
 }
+
+.btn-cta--primary:disabled{
+    opacity: 0.3;
+    cursor: default;
+}

@@ -14,7 +14,7 @@
 }
 
 .card__thumb{
-    width: 35%;
+    width: 50%;
     position: relative;
 }
 
@@ -68,7 +68,16 @@
 
 .card__info-field--name{
     font-weight: bold;
-    font-size: 1.2em;
+    font-size: 1.1rem;
+}
+
+.card__info-field--prices{
+    display: flex;
+    flex-direction: column;
+}
+
+.card__info-field--installments{
+    font-size: 0.9rem;
 }
 
 

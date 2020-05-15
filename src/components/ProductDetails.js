@@ -1,6 +1,7 @@
 import React from 'react';
 import CardSummary from './CardSummary';
 import Button from './Button';
+import FormRadio from './FormRadio';
 import './ProductDetails.css';
 
 // adicionar um evento onClick no button que abrirá a sacola de compras 
@@ -8,34 +9,51 @@ import './ProductDetails.css';
 // verificar se ha disponibilidade dos produtos 
 
 class ProductDetails extends React.Component {
-    handleClick = () => this.props.toggle();
+
+    closeProductDetails = (e) => {
+        e.preventDefault();
+        this.props.toggle();
+    }   
+    
+    getSelectedSize = () => {
+        const input = document.querySelector('input[name=productSize]:checked');
+        return input ? input.value : null;
+    }
 
     render() {
+        const productSizes = this.props.data.sizes.map((size) => {
+            return ({
+                id: size.sku,
+                value: size.sku,
+                text: size.size,
+                disabled: !size.available
+            });
+        });
+
         return (
-            <div className="productDetail__overlay">
-                <div className="">
-                    <span onClick={this.handleClick} className="productDetail__close-btn">
-                        <span className="iconify" data-icon="ei:close" data-inline="false"></span>
-                    </span>
-                    <CardSummary data={this.props.data} />  
+            <React.Fragment>
+                <div className="productDetail__overlay-bg"></div>
+                <div className="productDetail__overlay">
+                    <div className="productDetail__close-container">
+                        <a href="/" onClick={this.closeProductDetails} className="productDetail__close-btn">
+                            <span className="iconify" data-icon="ei:close" data-inline="false"></span>
+                        </a>
+                    </div>
+                    <div className="productDetail__overlay-content">
+                        <CardSummary data={this.props.data}>
+                            <div className="productDetail__text">
+                                <span>Selecione o tamanho :)</span>
+                            </div>
+                            <div className="productDetail__sizes">
+                                <FormRadio options={productSizes} name="productSize" onChange={() => this.forceUpdate()} />
+                            </div>
+                            <div className="productDetail__btns">
+                                <Button text="Adicionar à sacola" isPrimary={true} disabled={this.getSelectedSize() === null} onClick={() => this.props.addToCart(this.getSelectedSize())} /> 
+                            </div>    
+                        </CardSummary> 
+                    </div>
                 </div>
-                <span className="productDetail__text">Selecione o tamanho :)</span>
-                <div className="productDetail__sizes">
-                    <input type="radio" id="pp" name="fatfit" />
-                    <label htmlFor="pp">PP</label>
-                    <input type="radio" id="p" name="fatfit" />
-                    <label htmlFor="p">P</label>
-                    <input type="radio" id="m" name="fatfit" disabled="disabled" />
-                    <label htmlFor="m">M</label>
-                    <input type="radio" id="g" name="fatfit" />
-                    <label htmlFor="g">G</label>
-                    <input type="radio" id="gg" name="fatfit" />
-                    <label htmlFor="gg">GG</label>
-                </div>
-                <div className="productDetail__btns">
-                    <Button text="Adicionar à sacola" isPrimary={true} /> 
-                </div>
-            </div>
+            </React.Fragment>
         )
     }
 }
