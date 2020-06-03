@@ -1,7 +1,6 @@
 import React from 'react';
 
 
-
 class Sidebar extends React.Component {
     render() {
         let sidebarClass = `sidebar ${this.props.className} ${this.props.isRight ? 'sidebar--right' : ''}`

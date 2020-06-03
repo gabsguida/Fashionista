@@ -58,9 +58,19 @@
     text-align: right;
 }
 
-.card__info--promotion .card__info-field--regular-price{
+.card__info--promotion .card__info-field--regular-price span{
     text-decoration: line-through;
 }
+
+.card__info--promotion .card__info-field--regular-price{
+    color: #696868;
+}
+
+.card__info-field .card__info-field--actual-price{
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
 
 .card__info-field{
     padding-bottom: 14px;
@@ -76,8 +86,6 @@
     flex-direction: column;
 }
 
-.card__info-field--installments{
-    font-size: 0.9rem;
-}
+
 
 

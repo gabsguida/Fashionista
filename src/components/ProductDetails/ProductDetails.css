@@ -56,7 +56,7 @@
 
 .productDetail__overlay .card__info-field--installments{
     font-size: 1.0rem;
-    padding-left: 10px;
+    padding-left: 0;
 }
 
 .productDetail__text{
@@ -101,4 +101,5 @@
 .productDetail__close-btn{
     font-size: 1.8em;
 }
+
 

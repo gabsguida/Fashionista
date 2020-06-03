@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import CardSummary from './CardSummary';
-import Button from './Button';
-import ProductDetails from './ProductDetails';
+import Button from '../Button/Button';
+import ProductDetails from '../ProductDetails/ProductDetails';
 import './Card.css';
 
+import store from '../../store';
+import {actionCartAddProduct} from '../../pages/Cart/actions';
 
 class Card extends React.Component {
     constructor(props) {
@@ -12,7 +14,7 @@ class Card extends React.Component {
     }
 
     addToCart(sku) {
-        console.log(sku);
+        store.dispatch(actionCartAddProduct(sku))
         this.toggleProductDetails();
     }
 
@@ -26,7 +28,10 @@ class Card extends React.Component {
         return (
             <div className="card__container">
                 <CardSummary data={this.props.data}>
-                    <Button text="Detalhes" onClick={this.toggleProductDetails.bind(this)} />
+                    {!this.props.isCart ? 
+                        <Button text="Detalhes" onClick={this.toggleProductDetails.bind(this)} /> : 
+                        this.props.children
+                    }
                 </CardSummary>
                 <div>
                     {this.state.seen ? <ProductDetails addToCart={this.addToCart.bind(this)} toggle={this.toggleProductDetails.bind(this)} data={this.props.data} /> : null}
