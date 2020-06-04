@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, createRef} from 'react';
 import CardSummary from '../Card/CardSummary';
 import Button from '../Button/Button';
 import FormRadio from './FormRadio';
@@ -6,21 +6,23 @@ import './ProductDetails.css';
  
 
 const ProductDetails = ({data, addToCart, toggle}) => {
-    const [size, setSize] = useState(null);
-      
     const getSelectedSize = () => {
-        const input = document.querySelector('input[name=productSize]:checked');
+        const input = formRef.current.productSize
         return input ? input.value : null;
     }
+    const formRef = createRef();
 
     const productSizes = data.sizes.map((size) => {
         return ({
             id: size.sku,
             value: size.sku,
             text: size.size,
-            disabled: !size.available
+            disabled: !size.available 
         });
     });
+    
+    const isUniqueSize = productSizes.length === 1 && productSizes[0].text === "U";
+    const [size, setSize] = useState(isUniqueSize ? productSizes[0].value : null);
 
     return (
         <React.Fragment>
@@ -34,14 +36,18 @@ const ProductDetails = ({data, addToCart, toggle}) => {
                 <div className="productDetail__overlay-content">
                     <CardSummary data={data}>
                         <span className="card__info-field card__info-field--installments">{data.installments}</span>
-                        <div className="productDetail__text">
-                            <span>Selecione o tamanho :)</span>
-                        </div>
-                        <div className="productDetail__sizes">
-                            <FormRadio options={productSizes} name="productSize" onChange={() => setSize(getSelectedSize())} />
-                        </div>
+                        <form ref={formRef}>
+                            {isUniqueSize ? 
+                            <input type="hidden" name="productSize" value={productSizes[0].value} /> :  
+                            (<div className="productDetail__sizes">
+                                <span className="productDetail__text">Selecione o tamanho :)</span>
+                                <FormRadio options={productSizes} name="productSize" onChange={() => setSize(getSelectedSize())} />
+                            </div>)
+                            }
+                        </form>
+                       
                         <div className="productDetail__btns">
-                            <Button text="Adicionar à sacola" isPrimary={true} disabled={size === null} onClick={() => addToCart(size)} /> 
+                            <Button text="Adicionar à sacola" isPrimary={true} disabled={size === null && !isUniqueSize} onClick={() => addToCart(size)} /> 
                         </div>    
                     </CardSummary> 
                 </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const CardSummary = ({data, children}) => {
+const CardSummary = ({data, children, productSize}) => {
     const  {discount_percentage, image, name, regular_price, actual_price, on_sale} = data;
 
     return (
@@ -14,6 +14,9 @@ const CardSummary = ({data, children}) => {
             </div>
             <div className={"card__info" + (on_sale ? " card__info--promotion" : "")}>
                 <span className="card__info-field card__info-field--name">{name}</span>
+                {productSize && productSize !== "U" &&
+                    <span>{productSize}</span>
+                }
                 <div className="card__info-field card__info-field--prices">
                     {on_sale ? 
                         <React.Fragment>

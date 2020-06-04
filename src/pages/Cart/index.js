@@ -7,15 +7,15 @@ import Card from '../../components/Card/Card';
 
 // colocar o preço total no final do carrinho e botão de finalizar compra OK
 // estilizar o carrinho -> padding no sidebar 
-// colocar  o tamanho da roupa no carrinho
-// o número de quantidade de produtos no ícone 
+// colocar  o tamanho da roupa no carrinho OK
+// o número de quantidade de produtos no ícone OK
 // colocar uma imagem fallback na que está quebrada
 // action remove -> se apenas 1 unidade, deletar o produto. OK
 // responsive 
 // sidebar busca 
 // sidebar account 
-// arrumar os preços colocando De R$200 Por R$ 100;
-// quando o size = 'U' não precisa mostrar o FormRadio
+// arrumar os preços colocando De R$200 Por R$ 100; OK
+// quando o size = 'U' não precisa mostrar o FormRadio OK
 // implementar menu/filtro -> fazer um map de products que retorna só o primeiro nome
 
 
@@ -24,6 +24,10 @@ const Cart = () => {
     const cart = useSelector(state => state.cartReducer);
     const { products } = useSelector(store => store.homeReducer)
     const dispatch = useDispatch();
+
+    if(products.length === 0){
+        return null;
+    }
 
     const getProductInfo = (sku) => {
         return products.filter((product) =>  product.sizes.filter((size) => size.sku === sku).length > 0)[0] 
@@ -49,6 +53,15 @@ const Cart = () => {
         return totalPrice;        
     }
 
+    const getProductSize = (sku) => {
+        const productInfo = getProductInfo(sku);
+        if(!productInfo){
+            return null;
+        }
+        const size = productInfo.sizes.filter( size => size.sku === sku)[0];
+        return size ? size.size : null   
+    }
+
     const totalPrice = getTotalPrice(cartProducts)
     const totalPriceFull = getTotalPrice(cartProducts, true);
     const totalDiscount = totalPriceFull - totalPrice;
@@ -61,8 +74,8 @@ const Cart = () => {
                     Seu carrinho está vazinho.
                     </span>)
             :
-            (cartProducts.map(([sku, quantity], index) =>  
-                <Card data={getProductInfo(sku)} key={index} isCart={true}>
+            (cartProducts.map(([sku, quantity], index) =>
+                <Card data={getProductInfo(sku)} key={index} isCart={true} productSize={getProductSize(sku)}>
                     <a href="/" onClick={(e) => {
                         e.preventDefault();
                         dispatch(actionCartRemoveProduct(sku, true))

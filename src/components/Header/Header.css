@@ -18,6 +18,30 @@
 .header__icon{
     font-size: 2em;
     padding: 10px;
+    position: relative;
+    height: 40px;
+    display: inline-block;
+}
+
+.header__actions-cart{
+    position: relative;
+}
+
+.header__icon[data-badge]:not([data-badge=0]):before{
+    content: attr(data-badge);
+    display: inline-block;
+    height: 12px;
+    background: red;
+    position: absolute;
+    top: 0;
+    font-size: 1.0rem;
+    padding: 5px;
+    border-radius: 50%;
+    min-width: 12px;
+    line-height: 0.9rem;
+    text-align: center;
+    color: white;
+    right: 0;
 }
 
 .header__actions-list{

@@ -1,7 +1,7 @@
 import {CART_ADD_PRODUCT, CART_REMOVE_PRODUCT} from './types';
 
 const cartInicialState = {
-    products: {}
+    products: JSON.parse(window.localStorage.getItem("cartProducts")) || {}
 }
 
 export default function cartReducer(state=cartInicialState, action) {
@@ -14,6 +14,7 @@ export default function cartReducer(state=cartInicialState, action) {
             }else{
                 newState.products[action.sku] += 1;
             }
+            window.localStorage.setItem("cartProducts", JSON.stringify(newState.products))
             return newState;
         case CART_REMOVE_PRODUCT:
             if(action.removeAll){
@@ -21,6 +22,7 @@ export default function cartReducer(state=cartInicialState, action) {
             }else if (newState.products[action.sku] > 1){
                 newState.products[action.sku] -= 1; 
             }
+            window.localStorage.setItem("cartProducts", JSON.stringify(newState.products))
             return newState;
         default: return state;
     }
