@@ -20,7 +20,8 @@ import './Cart.css';
 // arrumar os preços colocando De R$200 Por R$ 100; OK
 // quando o size = 'U' não precisa mostrar o FormRadio OK
 // implementar menu/filtro -> fazer um map de products que retorna só o primeiro nome
-// Diminuir o tamanho do badge
+// Diminuir o tamanho do badge OK
+// Criar testes
 
 
 const Cart = () => {
@@ -71,8 +72,6 @@ const Cart = () => {
 
     return (
         <div className="cart__products-container">
-            <div className="cart__product-cards">
-
                 {cartProducts.length === 0 
                 ? 
                     (<span className="cart__product-empty-cart">
@@ -80,41 +79,41 @@ const Cart = () => {
                         </span>)
                 :
                 (cartProducts.map(([sku, quantity], index) =>
-                    <div className="cart__product-card" key={index}>
-                        <Card data={getProductInfo(sku)}  isCart={true} productSize={getProductSize(sku)}>
-                            <div className="cart__product-options">
-                                <a href="/" className="cart__product-options-trash" title="Remover" 
-                                    onClick={(e) => {
-                                        e.preventDefault();
-                                        dispatch(actionCartRemoveProduct(sku, true))
-                                }}>
-                                    <span className="iconify" data-icon="ei:trash" data-inline="false" />
-                                </a>
-                                <div className="cart__product-options-quantities">
-                                    <a href="/" className="cart__product-options-minus" title="Remover unidade"
+                    <div className="cart__product-cards">
+                        <div className="cart__product-card" key={index}>
+                            <Card data={getProductInfo(sku)}  isCart={true} productSize={getProductSize(sku)}>
+                                <div className="cart__product-options">
+                                    <a href="/" className="cart__product-options-trash" title="Remover" 
                                         onClick={(e) => {
                                             e.preventDefault();
-                                            dispatch(actionCartRemoveProduct(sku))
+                                            dispatch(actionCartRemoveProduct(sku, true))
                                     }}>
-                                        <span className="iconify" data-icon="ei:minus" data-inline="false" />
+                                        <span className="iconify" data-icon="ei:trash" data-inline="false" />
                                     </a>
-                                    <span className="cart__product-quantity">
-                                        {quantity}
-                                    </span>
-                                    <a href="/" className="cart__product-options-plus" title="Adicionar unidade"
-                                        onClick={(e) => {
-                                            e.preventDefault();
-                                            dispatch(actionCartAddProduct(sku))
-                                    }}>
-                                        <span className="iconify" data-icon="ei:plus" data-inline="false" />
-                                    </a>
+                                    <div className="cart__product-options-quantities">
+                                        <a href="/" className="cart__product-options-minus" title="Remover unidade"
+                                            onClick={(e) => {
+                                                e.preventDefault();
+                                                dispatch(actionCartRemoveProduct(sku))
+                                        }}>
+                                            <span className="iconify" data-icon="ei:minus" data-inline="false" />
+                                        </a>
+                                        <span className="cart__product-quantity">
+                                            {quantity}
+                                        </span>
+                                        <a href="/" className="cart__product-options-plus" title="Adicionar unidade"
+                                            onClick={(e) => {
+                                                e.preventDefault();
+                                                dispatch(actionCartAddProduct(sku))
+                                        }}>
+                                            <span className="iconify" data-icon="ei:plus" data-inline="false" />
+                                        </a>
+                                    </div>
                                 </div>
-                            </div>
-                        </Card>  
+                            </Card>  
+                        </div>
                     </div>))
-                }      
-
-            </div>
+                }    
             
                 {cartProducts.length !== 0
                 ?

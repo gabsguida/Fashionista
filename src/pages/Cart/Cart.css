@@ -5,6 +5,13 @@
     padding: 0 15px;
 }
 
+.cart__product-empty-cart{
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 50%;
+}
+
 .cart__product-cards{
     flex-grow: 2;
     overflow-y: auto;
