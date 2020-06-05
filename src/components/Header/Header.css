@@ -27,7 +27,7 @@
     position: relative;
 }
 
-.header__icon[data-badge]:not([data-badge=0]):before{
+.header__icon[data-badge]:not([data-badge="0"]):before{
     content: attr(data-badge);
     display: inline-block;
     height: 12px;

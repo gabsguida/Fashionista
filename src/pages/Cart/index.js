@@ -4,12 +4,15 @@ import {useSelector, useDispatch} from 'react-redux';
 import {actionCartRemoveProduct, actionCartAddProduct} from './actions';
 
 import Card from '../../components/Card/Card';
+import Button from '../../components/Button/Button';
+import './Cart.css';
+
 
 // colocar o preço total no final do carrinho e botão de finalizar compra OK
-// estilizar o carrinho -> padding no sidebar 
+// estilizar o carrinho -> padding no sidebar OK -> FALTA ARRUMAR O BOTÃO
 // colocar  o tamanho da roupa no carrinho OK
 // o número de quantidade de produtos no ícone OK
-// colocar uma imagem fallback na que está quebrada
+// colocar uma imagem fallback na que está quebrada OK
 // action remove -> se apenas 1 unidade, deletar o produto. OK
 // responsive 
 // sidebar busca 
@@ -17,7 +20,7 @@ import Card from '../../components/Card/Card';
 // arrumar os preços colocando De R$200 Por R$ 100; OK
 // quando o size = 'U' não precisa mostrar o FormRadio OK
 // implementar menu/filtro -> fazer um map de products que retorna só o primeiro nome
-
+// Diminuir o tamanho do badge
 
 
 const Cart = () => {
@@ -67,51 +70,70 @@ const Cart = () => {
     const totalDiscount = totalPriceFull - totalPrice;
 
     return (
-        <div className="cart__product-cards">
-            {cartProducts.length === 0 
-            ? 
-                (<span className="cart__product-empty-cart">
-                    Seu carrinho está vazinho.
-                    </span>)
-            :
-            (cartProducts.map(([sku, quantity], index) =>
-                <Card data={getProductInfo(sku)} key={index} isCart={true} productSize={getProductSize(sku)}>
-                    <a href="/" onClick={(e) => {
-                        e.preventDefault();
-                        dispatch(actionCartRemoveProduct(sku, true))
-                    }}>
-                        <span className="iconify" data-icon="ei:trash" data-inline="false" />
-                    </a>
-                    <a href="/" onClick={(e) => {
-                        e.preventDefault();
-                        dispatch(actionCartRemoveProduct(sku))
-                    }}>
-                        <span className="iconify" data-icon="ei:minus" data-inline="false" />
-                    </a>
-                    <span className="cart__product-quantity">
-                        {quantity}
-                    </span>
-                    <a href="/" onClick={(e) => {
-                        e.preventDefault();
-                        dispatch(actionCartAddProduct(sku))
-                    }}>
-                        <span className="iconify" data-icon="ei:plus" data-inline="false" />
-                    </a>  
-                </Card>  ))
-            }
+        <div className="cart__products-container">
+            <div className="cart__product-cards">
 
-            {cartProducts.length !== 0
-            ?
-                <div className="cart__products-price-info">
-                    <span className="cart__product-total-price">Por {formatPrice(totalPrice)}</span>
-                    {totalDiscount > 0 &&   
-                        <span className="cart__product-total-discount">Desconto total de {formatPrice(totalDiscount)}</span>
-                    }  
-                </div>
-            :
-                ""
-            }
-                           
+                {cartProducts.length === 0 
+                ? 
+                    (<span className="cart__product-empty-cart">
+                        Seu carrinho está vazinho.
+                        </span>)
+                :
+                (cartProducts.map(([sku, quantity], index) =>
+                    <div className="cart__product-card" key={index}>
+                        <Card data={getProductInfo(sku)}  isCart={true} productSize={getProductSize(sku)}>
+                            <div className="cart__product-options">
+                                <a href="/" className="cart__product-options-trash" title="Remover" 
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        dispatch(actionCartRemoveProduct(sku, true))
+                                }}>
+                                    <span className="iconify" data-icon="ei:trash" data-inline="false" />
+                                </a>
+                                <div className="cart__product-options-quantities">
+                                    <a href="/" className="cart__product-options-minus" title="Remover unidade"
+                                        onClick={(e) => {
+                                            e.preventDefault();
+                                            dispatch(actionCartRemoveProduct(sku))
+                                    }}>
+                                        <span className="iconify" data-icon="ei:minus" data-inline="false" />
+                                    </a>
+                                    <span className="cart__product-quantity">
+                                        {quantity}
+                                    </span>
+                                    <a href="/" className="cart__product-options-plus" title="Adicionar unidade"
+                                        onClick={(e) => {
+                                            e.preventDefault();
+                                            dispatch(actionCartAddProduct(sku))
+                                    }}>
+                                        <span className="iconify" data-icon="ei:plus" data-inline="false" />
+                                    </a>
+                                </div>
+                            </div>
+                        </Card>  
+                    </div>))
+                }      
+
+            </div>
+            
+                {cartProducts.length !== 0
+                ?
+                    <div className="cart__products-prices-info">
+                        <div className="cart__products-prices">
+                            <span className="cart__product-total-price">Por {formatPrice(totalPrice)}</span>
+                            {totalDiscount > 0 &&   
+                                <span className="cart__product-total-discount">Você economiza: {formatPrice(totalDiscount)}</span>
+                            }
+                        </div>
+                        <Button 
+                            text="Finalizar compra"
+                            isPrimary={true}
+                        />  
+                    </div>
+                :
+                    ""
+                }
+
         </div>
     )
 }

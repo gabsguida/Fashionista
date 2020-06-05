@@ -1,11 +1,12 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 const Logo = () => {
     return (
         <div className="header__logo">
-            <a href="/" title="Ir para a página inicial">
+            <Link to="/" title="Ir para a página inicial">
                 <img src="img/fashionista-logo.png" alt="Fashionista" className="header__logo-img"/>
-            </a>
+            </Link>
         </div>
     )
 }
