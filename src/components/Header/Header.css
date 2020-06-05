@@ -30,18 +30,19 @@
 .header__icon[data-badge]:not([data-badge="0"]):before{
     content: attr(data-badge);
     display: inline-block;
-    height: 12px;
-    background: red;
+    height: 5px;
+    background: #F44336;
     position: absolute;
-    top: 0;
-    font-size: 1.0rem;
-    padding: 5px;
+    top: 2px;
+    font-size: 0.8rem;
+    padding: 8px;
     border-radius: 50%;
-    min-width: 12px;
-    line-height: 0.9rem;
+    min-width: 5px;
+    line-height: 0.4rem;
     text-align: center;
     color: white;
-    right: 0;
+    right: 3px;
+    z-index: 5;
 }
 
 .header__actions-list{
