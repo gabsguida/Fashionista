@@ -7,24 +7,6 @@ import Card from '../../components/Card/Card';
 import Button from '../../components/Button/Button';
 import './Cart.css';
 
-
-// colocar o preço total no final do carrinho e botão de finalizar compra OK
-// estilizar o carrinho -> padding no sidebar OK -> FALTA ARRUMAR O BOTÃO OK
-// colocar  o tamanho da roupa no carrinho OK
-// o número de quantidade de produtos no ícone OK
-// colocar uma imagem fallback na que está quebrada OK
-// action remove -> se apenas 1 unidade, deletar o produto. OK
-// responsive OK
-// sidebar busca OK
-// sidebar account OK
-// arrumar os preços colocando De R$200 Por R$ 100; OK
-// quando o size = 'U' não precisa mostrar o FormRadio OK
-// implementar menu/filtro -> fazer um map de products que retorna só o primeiro nome
-// Diminuir o tamanho do badge OK
-// Criar testes
-// adicionar um ícone X no search input
-
-
 const Cart = () => {
     const cart = useSelector(state => state.cartReducer);
     const { products } = useSelector(store => store.homeReducer)
