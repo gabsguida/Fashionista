@@ -14,7 +14,7 @@ import './Cart.css';
 // o número de quantidade de produtos no ícone OK
 // colocar uma imagem fallback na que está quebrada OK
 // action remove -> se apenas 1 unidade, deletar o produto. OK
-// responsive 
+// responsive OK
 // sidebar busca OK
 // sidebar account OK
 // arrumar os preços colocando De R$200 Por R$ 100; OK
