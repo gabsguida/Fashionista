@@ -3,12 +3,13 @@ import Card from '../Card/Card';
 
 
 const Cards = ({products}) => {
-    console.log(products)
     return (
-        <section className="cards">
+        <React.Fragment>
             <h2 className="cards__section-title">Nossos Produtos</h2>
-            {products.map((product, index) => <Card data={product} key={index} />)}
-        </section>
+            <section className="cards">
+                {products.map((product, index) => <Card data={product} key={index} />)}
+            </section>
+        </React.Fragment>
     )
 }
 

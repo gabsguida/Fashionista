@@ -4,6 +4,7 @@ import Sidebar from './Sidebar';
 import Menu from '../Menu/Menu';
 import Cart from '../../pages/Cart';
 import Search from '../../pages/Search';
+import Account from '../../pages/Account';
 
 import {menuItems} from './menuItems';
 
@@ -20,7 +21,7 @@ const SidebarContainer = () => {
                 <Cart />
             </Sidebar>
             <Sidebar className="account__container" isRight={true} title="Login">
-                login box
+                <Account />
             </Sidebar> 
         </React.Fragment>
         

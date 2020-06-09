@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import Cards from '../../components/Cards';
 import Hero from '../../components/Hero';
 import Header from '../../components/Header';
+import "./Home.css";
 
 import { actionProductsLoad } from './actions';
 import store from '../../store';
@@ -12,7 +13,6 @@ const Home = () => {
   const { loading, products, error } = useSelector(store => store.homeReducer)
 
   useEffect(() => {
-    console.log('effect')
     store.dispatch(actionProductsLoad())
   }, [])
 

@@ -21,7 +21,7 @@ const Search = () => {
                     onKeyUp={(e) => dispatch(actionSearchByName(e.target.value, products))}
                 />
             </div>           
-            <div className="products__search-results">
+            <div className="products__search-results custom-scrollbar">
                 {results.map((result, index) => 
                     <div className="products__search-results-card">
                         <Card data={result} key={index} />

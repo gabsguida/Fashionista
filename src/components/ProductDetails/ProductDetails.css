@@ -28,13 +28,15 @@
 }
 
 .productDetail__overlay-content{
-    overflow-y: scroll;
+    overflow-y: auto;
     height: 100%;
+    max-height: calc(90vh - 5rem);
 }
 
 .productDetail__overlay .card__thumb{
     width: 100%;
     margin: 0 auto;
+    margin-left: 8px;
 }
 
 .productDetail__overlay .card__info{
@@ -50,10 +52,6 @@
     padding-bottom: 8px;
 }
 
-.productDetail__overlay .card__info-field--prices{
-    flex-direction: row;
-}
-
 .productDetail__overlay .card__info-field--installments{
     font-size: 1.0rem;
     padding-left: 0;
@@ -61,6 +59,7 @@
 
 .productDetail__text{
     font-weight: bold;
+    line-height: 1.7rem;
 }
 
 .productDetail__sizes{
@@ -102,4 +101,65 @@
     font-size: 1.8em;
 }
 
+@media screen and (min-width: 640px){
+    .productDetail__overlay{
+        height: auto;
+        width: 90%;
+        left: 5%;
+    }
 
+    .productDetail__overlay-content{
+        display: flex;
+        flex-direction: row;
+    }
+
+    .productDetail__overlay-content .card__info{
+        display: flex;
+        flex-direction: column;
+        padding: 0 0 0 20px;
+        justify-content: unset;
+        font-size: 1.2rem;
+    }
+
+    .productDetail__overlay-content .card__thumb-img{
+        max-width: 100%;
+        display: block;
+        max-height: 100%;
+        width: auto;
+    }
+
+    .productDetail__overlay-content .card__info-field--name{
+        font-size: 1.6rem;
+    }
+
+    .productDetail__overlay-content .card__info-field .card__info-field--regular-price{
+        font-size: 1.3rem;
+    }
+
+    .productDetail__overlay-content .card__info-field .card__info-field--actual-price{
+        font-size: 1.5rem;
+    }
+
+    .productDetail__overlay-content .card__info-field--installments{
+        font-size: 1.2rem;
+    }
+
+    .productDetail__sizes .form-radio__container label{
+        width: 38px;
+        font-size: 1.2rem;
+    }
+
+    .productDetail__btns .btn-cta--primary{
+        padding: 0px 46px;
+    }
+    
+}
+
+
+@media screen and (min-width: 768px){
+    .productDetail__overlay{
+        height: auto;
+        width: 70%;
+        left: 15%;
+    }
+}

@@ -15,9 +15,15 @@
     box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.2);
 }
 
+.header__logo-img{
+    display: block;
+    min-width: 150px;
+    width: 80%;
+}
+
 .header__icon{
-    font-size: 2em;
-    padding: 10px;
+    font-size: 2rem;
+    padding: 5px 10px 10px;
     position: relative;
     height: 40px;
     display: inline-block;
@@ -31,13 +37,13 @@
     content: attr(data-badge);
     display: inline-block;
     height: 5px;
-    background: #F44336;
+    background: #b99646;
     position: absolute;
     top: 2px;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     padding: 8px;
     border-radius: 50%;
-    min-width: 5px;
+    min-width: 6px;
     line-height: 0.4rem;
     text-align: center;
     color: white;
@@ -50,8 +56,3 @@
     justify-content: space-between;
 }
 
-.header__logo-img{
-    display: block;
-    min-width: 160px;
-    width: 80%;
-}

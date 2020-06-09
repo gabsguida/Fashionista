@@ -1,0 +1,64 @@
+.account__content{
+    padding: 0 20px;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    max-height: calc(100vh - 5rem);
+}
+
+.account__content-form{
+    display:flex;
+    flex-direction: column;
+}
+
+.form__input{
+    flex-direction: column;
+    display: flex;
+    position: relative;
+    padding: 10px 0;
+}
+
+.account__label-email,
+.account__label-password{
+    padding-bottom: 5px;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.account__input-email,
+.account__input-password{
+    height: 40px;
+    border: 2px solid #b99646;
+    border-radius: 5px;
+    padding-left: 28px;
+}
+
+.account__icon-email,
+.account__icon-password{
+    position: absolute;
+    top: 43px;
+    left: 4px;
+    font-size: 1.5rem;
+    color: rgb(114, 110, 110);
+}
+
+.account__content-form .btn-cta--primary{
+    height: 38px;
+}
+
+.account__new-user{
+    display: flex;
+    flex-direction: column;
+}
+
+.account__new-user-text{
+    padding-bottom: 5px;
+    align-self: center;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.account__new-user .btn-cta{
+    height: 38px;
+}

@@ -1,3 +1,51 @@
+/* import React, { useState, useEffect } from 'react';
+import {useDispatch} from 'react-redux';
+
+import CardSummary from './CardSummary';
+import Button from '../Button/Button';
+import ProductDetails from '../ProductDetails/ProductDetails';
+import './Card.css';
+
+import store from '../../store';
+import {actionCartAddProduct} from '../../pages/Cart/actions';
+
+const Card = ({data, productSize, isCart, children}) => {
+    const [seen, isSeen] = useState(false);
+    const dispatch = useDispatch();
+
+    const addToCart = (sku) => {
+        dispatch(actionCartAddProduct(sku))
+        toggleProductDetails();
+    }
+
+    useEffect(() => {
+        addToCart()
+    }, [addToCart])
+
+    
+
+    const toggleProductDetails = () => {
+        return isSeen(!seen);
+    }
+
+    return (
+        <div className="card__container">
+            <CardSummary data={data} productSize={productSize}>
+                {!isCart ? 
+                    <Button text="Detalhes" onClick={toggleProductDetails()} /> : 
+                    children
+                }
+            </CardSummary>
+            <div>
+                {seen ? <ProductDetails addToCart={addToCart.bind(this)} toggle={toggleProductDetails} data={data} /> : null}
+            </div>     
+        </div>
+    );
+    
+}
+
+export default Card; */
+
 import React, { useState, useEffect } from 'react';
 import CardSummary from './CardSummary';
 import Button from '../Button/Button';
