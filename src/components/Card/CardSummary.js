@@ -29,7 +29,7 @@ const CardSummary = ({data, children, productSize}) => {
                             <span className="card__info-field card__info-field--regular-price">
                                 De <span>{regular_price}</span>
                             </span>
-                            <span className="card__info-field card__info-field--actual-price">
+                            <span className="card__info-field card__info-field--actual-price-red">
                                 Por <span>{actual_price}</span>
                             </span>
                             

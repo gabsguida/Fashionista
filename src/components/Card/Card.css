@@ -74,9 +74,10 @@
     color: #696868;
 }
 
-.card__info-field .card__info-field--actual-price{
+.card__info-field .card__info-field--actual-price-red{
     font-weight: bold;
     font-size: 1.1rem;
+    color: #e03030;
 }
 
 
