@@ -27,7 +27,7 @@ const ProductDetails = ({data, addToCart, toggle}) => {
     return (
         <React.Fragment>
             <div className="productDetail__overlay-bg"></div>
-            <div className="productDetail__overlay">
+            <div className="productDetail__overlay" data-testid="product-details">
                 <div className="productDetail__close-container">
                     <a href="/" onClick={(e) => {e.preventDefault(); toggle()}} className="productDetail__close-btn">
                         <span className="iconify" data-icon="ei:close" data-inline="false"></span>

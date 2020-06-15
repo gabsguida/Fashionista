@@ -12,7 +12,7 @@ const Header = () => {
     const productsQuantity = Object.keys(cart.products).length;
 
     return (
-        <header className="header">
+        <header className="header" data-testid="header">
             <div className="header__container">
                 <ButtonIcon className="header__hamburguer" icon="ei:navicon" sidebar=".menu__container" />
                 <Logo />

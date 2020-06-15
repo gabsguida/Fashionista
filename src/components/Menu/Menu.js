@@ -5,7 +5,7 @@ import './Menu.css'
 
 const Menu = ({items}) =>  {
     return (
-        <nav className="menu__nav">
+        <nav className="menu__nav" data-testid="menu">
             <ul>
             {items.map((item, index) => <MenuItem url={item.url} text={item.title} key={index} />)}  
             </ul>

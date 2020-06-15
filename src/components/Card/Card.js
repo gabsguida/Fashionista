@@ -74,7 +74,7 @@ class Card extends React.Component {
 
     render() {
         return (
-            <div className="card__container">
+            <div className="card__container" data-testid="card">
                 <CardSummary data={this.props.data} productSize={this.props.productSize}>
                     {!this.props.isCart ? 
                         <Button text="Detalhes" onClick={this.toggleProductDetails.bind(this)} /> : 
