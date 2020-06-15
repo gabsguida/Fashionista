@@ -23,8 +23,8 @@ const Search = () => {
             </div>           
             <div className="products__search-results custom-scrollbar">
                 {results.map((result, index) => 
-                    <div className="products__search-results-card">
-                        <Card data={result} key={index} />
+                    <div className="products__search-results-card" key={index}>
+                        <Card data={result} />
                     </div>
                 )}
             </div>

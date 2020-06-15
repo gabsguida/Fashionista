@@ -1,12 +1,12 @@
 .products__search-container{
     display: flex;
     flex-direction: column;
-    padding: 0 20px;
+    padding: 0 20px 0 12px;
     max-height: calc(100vh - 5rem);
 }
 
 .products__search-field{
-    padding-top: 10px;
+    padding: 10px 0 10px 8px;
     flex-grow: 1;
 }
 
@@ -28,12 +28,14 @@
     flex-grow: 2;
 }
 
-.products__search-results-card .card__thumb{
+.products__search-results .card__container{
     margin-left: 8px;
 }
 
-@media screen and (min-width: 640px){
-    .products__search-results-card{
-        padding: 10px 0;
-    }
+.products__search-results-card{
+    margin-bottom: 15px;
+}
+
+.products__search-results-card:last-child{
+    margin-bottom: 0;
 }

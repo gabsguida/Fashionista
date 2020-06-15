@@ -9,11 +9,15 @@
 
 .card__container{
     display: flex;
-    margin-top: 15px;
+    margin-bottom: 15px;
     border: 2px  solid rgba(0,0,0,0.1);
     border-radius: 5px;
     background-color: #ffffff;
 
+}
+
+.card__container:last-child{
+    margin-bottom: 0;
 }
 
 .card__thumb{
@@ -99,7 +103,7 @@
     }
 
     .card__container{
-        margin: 0;
+        margin-bottom: 0;
     }
 
     .btn-cta{

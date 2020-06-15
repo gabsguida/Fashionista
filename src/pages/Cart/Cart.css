@@ -16,11 +16,16 @@
 .cart__product-cards{
     flex-grow: 2;
     overflow-y: auto;
+    margin-bottom: 15px;
 }
 
 .cart__product-card{
     margin-bottom: 15px;
     margin-left: 8px;
+}
+
+.cart__product-card:last-child{
+    margin-bottom: 0;
 }
 
 .cart__product-card .card__info{
