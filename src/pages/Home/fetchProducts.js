@@ -3,7 +3,7 @@ import store from '../../store';
 
 
 //API -> https://5e9935925eabe7001681c856.mockapi.io/api/v1/catalog
-// use of mocks because of broken API
+// use of mocks due to broken API
 export function fetchProducts() {
     fetch("/mocks/products.json")
         .then(res => res.json())

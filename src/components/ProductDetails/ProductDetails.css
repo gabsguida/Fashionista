@@ -159,7 +159,7 @@
 @media screen and (min-width: 768px){
     .productDetail__overlay{
         height: auto;
-        width: 70%;
+        width: 75%;
         left: 15%;
     }
 }
