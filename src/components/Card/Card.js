@@ -1,4 +1,4 @@
-/* import React, { useState, useEffect } from 'react';
+/* import React, { useState } from 'react';
 import {useDispatch} from 'react-redux';
 
 import CardSummary from './CardSummary';
@@ -6,7 +6,7 @@ import Button from '../Button/Button';
 import ProductDetails from '../ProductDetails/ProductDetails';
 import './Card.css';
 
-import store from '../../store';
+//import store from '../../store';
 import {actionCartAddProduct} from '../../pages/Cart/actions';
 
 const Card = ({data, productSize, isCart, children}) => {
@@ -18,15 +18,7 @@ const Card = ({data, productSize, isCart, children}) => {
         toggleProductDetails();
     }
 
-    useEffect(() => {
-        addToCart()
-    }, [addToCart])
-
-    
-
-    const toggleProductDetails = () => {
-        return isSeen(!seen);
-    }
+    const toggleProductDetails = () => isSeen(true);
 
     return (
         <div className="card__container">
@@ -46,7 +38,7 @@ const Card = ({data, productSize, isCart, children}) => {
 
 export default Card; */
 
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import CardSummary from './CardSummary';
 import Button from '../Button/Button';
 import ProductDetails from '../ProductDetails/ProductDetails';
