@@ -1,5 +1,23 @@
 # **Fashionista E-commerce**
 
+Esse projeto foi o desafio final do AceleraDev React da Codenation, realizado entre abril e junho de 2020. 
+Uma demo do projeto está disponível em https://fashionista-ad.netlify.app/.
+
+## **Resumo**
+- Desenvolver uma SPA (Single Page Application) de um e-commerce.
+- Tecnologias e linguagens utilizadas:
+  - Node.js
+  - React.js 
+  - Redux (gerenciamento de estado global)
+  - BEM CSS
+  - Web services via Rest API
+- Ferramentas usadas no processo de desenvolvimento:
+  - Jira
+  - Git
+  - Netlify
+  
+----
+
 ## **Cenário**
 
 Segundo o levantamento, da Webshoppers (Ebit / Nielsen), os e-commerces brasileiros faturaram cerca de R$ 53,2 bilhões em 2018. O segmento “Moda e Acessórios” representa 5,6% do faturamento no varejo online, ocupando a segunda posição entre as categorias de produtos com mais pedidos, perdendo apenas para o segmento de eletroeletrônicos.
@@ -24,79 +42,49 @@ Não utilize frameworks CSS como Bootstrap, Foundation e afins.
 
 ## **Requisitos obrigatórios**
 
-Para cada item do catálogo de produtos as seguintes informações devem estar na página:
-
-- Imagem
-- Nome
-- Preço
-- Status “Em promoção”
-- Preço promocional (se disponível)
-- Tamanhos disponíveis
-- Selo “Promoção”
-
-:+1: Deve ser possível adicionar itens por tamanho no carrinho de compras.
-
-:+1: Deve ser possível visualizar os itens adicionados no carrinho de compras, exibindo imagem, nome, preço e quantidade.
-
-:+1: Deve ser possível remover itens do carrinho de compras.
+- Para cada item do catálogo de produtos as seguintes informações devem estar na página:
+  - Imagem
+  - Nome
+  - Preço
+  - Status “Em promoção”
+  - Preço promocional (se disponível)
+  - Tamanhos disponíveis
+  - Selo “Promoção”
+- Deve ser possível adicionar itens por tamanho no carrinho de compras.
+- Deve ser possível visualizar os itens adicionados no carrinho de compras, exibindo imagem, nome, preço e quantidade.
+- Deve ser possível remover itens do carrinho de compras.
 
 ## **Requisitos opcionais**
 
-O carrinho de compras deve persistir entre reloads de página.
-Alguns produtos não tem todos os tamanhos disponíveis, mostre apenas os tamanhos disponíveis em estoque.
-Implemente a funcionalidade de busca em tempo real.
+- O carrinho de compras deve persistir entre reloads de página.
+- Alguns produtos não tem todos os tamanhos disponíveis, mostre apenas os tamanhos disponíveis em estoque.
+- Implemente a funcionalidade de busca em tempo real.
 
 ## **Endpoint - Catálogo de Produtos**
 
 https://5e9935925eabe7001681c856.mockapi.io/api/v1/catalog
 
-## **Propriedades de um produto (referência):**
+### **Propriedades de um produto (referência):**
 ```
 {
-	  "name": "Nome do produto",
-  
-		"style": "Código de categoria",
-    
-		"code_color": "Código de categoria + código de cor",
-    
-		"color_slug": "slug da cor do produto",
-    
-		"color": "Nome da cor do produto",
-    
-		"on_sale": "booleano - Se o produto está em promoção",
-    
-		"regular_price": "preço sem promoção",
-    
-		"actual_price": "preço com promoção",
-    
-		"discount_percentage": "% de desconto da promoção",
-    
-		"installments": "quantidade de parcelas",
-    
-		"sizes": [
-			
-      {
-      
-				"available": "booleano - indica se o tamanho está disponível",
-        
-				"size": "nome do tamanho",
-        
-				"sku": "código do produto + código do tamanho (para adicionar no carrinho)"
-			
-      }
-      
-		]
+  "name": "Nome do produto",
+  "style": "Código de categoria",
+  "code_color": "Código de categoria + código de cor",
+  "color_slug": "slug da cor do produto",
+  "color": "Nome da cor do produto",
+  "on_sale": "booleano - Se o produto está em promoção",
+  "regular_price": "preço sem promoção",
+  "actual_price": "preço com promoção",
+  "discount_percentage": "% de desconto da promoção",
+  "installments": "quantidade de parcelas",
+  "sizes": [
+    {
+      "available": "booleano - indica se o tamanho está disponível",
+      "size": "nome do tamanho",
+      "sku": "código do produto + código do tamanho (para adicionar no carrinho)"
+    }
+  ]
 }
+
 ```
 
-## **Deploy**
-
-A recomendação é para que o deploy seja feito no netilify (gratuito) ou serviço similar - https://www.netlify.com/
-
-## **Layouts**
-
-Os layouts abaixo servem de referência visual das funcionalidades, sintam-se livres para segui-las ou implementá-las com base em outras referências, desde que atenda às regras e aos requisitos obrigatórios.
-
-**Layouts:** Referência Navegável
-
-https://viniciusvinna.netlify.app/react-fashionista
